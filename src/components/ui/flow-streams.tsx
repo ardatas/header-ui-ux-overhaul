@@ -42,11 +42,16 @@ export function FlowStreams({
       const goalY = goal.top - bounds.top + goal.height / 2;
       const newsletterY = newsletter.top - bounds.top + newsletter.height / 2;
       const streams: Stream[] = [];
+      const arrivalSpacing = Math.min(
+        18,
+        (goal.height * 0.3) / (rows.length - 1),
+      );
       rows.forEach((row, index) => {
         const startX = row.right - bounds.left + 3;
-        [-9, -3, 3, 9].forEach((offset) => {
+        [-3, 3].forEach((offset) => {
           const y = row.top - bounds.top + row.height / 2 + offset;
-          const endY = goalY + (index - 3) * 1.5 + offset / 4;
+          const endY =
+            goalY + (index - (rows.length - 1) / 2) * arrivalSpacing + offset;
           const width = goalLeft - startX;
           streams.push({
             path: `M ${startX} ${y} C ${startX + width * 0.45} ${y}, ${goalLeft - width * 0.45} ${endY}, ${goalLeft} ${endY}`,
@@ -118,18 +123,14 @@ export function FlowStreams({
           <path
             d={stream.path}
             fill="none"
-            stroke={stream.output ? "var(--orange)" : "#F5F0E8"}
-            strokeOpacity={stream.output ? 0.85 : i % 4 === 1 ? 0.6 : 0.32}
+            stroke="#F5F0E8"
+            strokeOpacity={stream.output ? 0.85 : i % 2 === 0 ? 0.5 : 0.28}
             strokeWidth={stream.output ? 2.2 : 1.7}
-            strokeDasharray={stream.output ? undefined : ".1 6"}
+            strokeDasharray={stream.output ? undefined : ".1 8"}
             strokeLinecap="round"
           />
           {!reduced && i % 2 === 0 && (
-            <circle
-              r={stream.output ? 3.5 : 2}
-              fill={stream.output ? "var(--orange)" : "#F5F0E8"}
-              opacity=".9"
-            >
+            <circle r={stream.output ? 3.5 : 2} fill="#F5F0E8" opacity=".9">
               <animateMotion
                 path={stream.path}
                 dur={`${3 + (i % 4) * 0.4}s`}

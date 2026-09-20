@@ -22,7 +22,7 @@ npm run preview
 
 Deploy a Git branch containing this app (including `package.json`), using the repository root as the Root Directory. The Vite preset, `npm ci`, `npm run build`, and `dist` output directory are configured in `vercel.json`. No environment variables are required.
 
-The original `main` branch contains only the README until the landing-page branch is merged. Redeploying that original commit will fail because it has no `package.json`.
+Use `main` for production deployments. Older README-only commits do not contain the app and cannot be built.
 
 ## Stack
 

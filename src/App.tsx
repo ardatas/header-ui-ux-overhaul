@@ -389,10 +389,7 @@ export default function App() {
             <em>Spend it yourself.</em>
           </h1>
           <p className="hero-description">
-            Tell Header what you want to learn, what matters to you, and what to
-            skip.
-            <br />
-            Add the sources you follow to shape your personal newsletter.
+            Tell Header what matters and what to skip. Add your sources.
           </p>
           <TopicComposer />
           <div className="hero-bottom">
@@ -401,7 +398,7 @@ export default function App() {
             </a>
           </div>
         </section>
-        <div className="source-ribbon">
+        <div className="source-ribbon" hidden>
           <div className="section-wrap ribbon-inner">
             <span>BUILT AROUND YOUR CURIOSITY</span>
             <span>Blogs</span>
