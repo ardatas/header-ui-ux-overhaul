@@ -3286,35 +3286,40 @@ h3 em {
 }
 
 /* Centered source explorer with Header orange interaction accents. */
+.integrations-interactive {
+  padding-block: 40px;
+  scroll-margin-top: -60px;
+}
 .integrations-centered-heading {
   text-align: center;
-  margin-bottom: 38px;
+  margin-bottom: 24px;
 }
 .integrations-centered-heading h2 {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
+  font-size: clamp(36px, 4vw, 48px);
 }
 .integrations-centered-heading h2 em {
   color: var(--orange);
 }
 .integrations-centered-heading p {
   color: var(--text-secondary);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .source-network-board {
-  max-width: 800px;
+  max-width: 680px;
   margin-inline: auto;
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 20px;
   background: rgba(23, 32, 52, 0.3);
   overflow: hidden;
 }
 .interactive-logo-network {
   position: relative;
-  max-width: 690px;
+  max-width: 540px;
   width: 100%;
-  aspect-ratio: 600 / 480;
-  margin: 12px auto 26px;
+  aspect-ratio: 600 / 400;
+  margin: 8px auto 20px;
 }
 .interactive-network-lines {
   position: absolute;
@@ -3339,8 +3344,8 @@ h3 em {
 .interactive-source-node {
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 60px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -3354,7 +3359,7 @@ h3 em {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border-hover);
-  border-radius: 18px;
+  border-radius: 15px;
   background: var(--bg-surface);
   transition:
     color 0.2s,
@@ -3371,7 +3376,7 @@ h3 em {
 .interactive-source-node:focus-visible {
   outline-color: var(--orange);
   outline-offset: 7px;
-  border-radius: 18px;
+  border-radius: 15px;
 }
 .interactive-source-label {
   position: absolute;
@@ -3390,8 +3395,8 @@ h3 em {
   left: 50%;
   top: 37.5%;
   transform: translate(-50%, -50%);
-  width: 102px;
-  height: 102px;
+  width: 84px;
+  height: 84px;
 }
 .interactive-header-node > div {
   display: flex;
@@ -3401,12 +3406,13 @@ h3 em {
   height: 100%;
   background: var(--bg-elevated);
   border: 1px solid var(--border-hover);
-  border-radius: 24px;
+  border-radius: 20px;
   border-color: var(--orange-border);
   box-shadow: 0 0 40px rgba(229, 132, 45, 0.08);
 }
 .interactive-header-node img {
-  border-radius: 12px;
+  width: 54px;
+  height: 54px;  border-radius: 12px;
 }
 .interactive-header-node > span {
   position: absolute;
@@ -3430,8 +3436,8 @@ h3 em {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  padding: 25px 32px;
-  min-height: 126px;
+  padding: 16px 24px;
+  min-height: 96px;
   border-top: 1px solid var(--border);
   background: var(--bg-surface);
 }
@@ -3469,7 +3475,7 @@ h3 em {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin: 25px auto 0;
+  margin: 16px auto 0;
   color: var(--text-secondary);
   font-size: 12px;
   text-align: center;
@@ -3478,8 +3484,12 @@ h3 em {
   color: var(--orange);
 }
 @media (max-width: 640px) {
+  .integrations-interactive {
+    padding-block: 36px;
+    scroll-margin-top: 0;
+  }
   .integrations-centered-heading {
-    margin-bottom: 28px;
+    margin-bottom: 22px;
   }
   .integrations-centered-heading p {
     font-size: 13px;
@@ -3490,9 +3500,9 @@ h3 em {
     border-radius: 17px;
   }
   .interactive-logo-network {
-    aspect-ratio: 600 / 640;
-    margin-top: 16px;
-    margin-bottom: 28px;
+    aspect-ratio: 600 / 600;
+    margin-top: 12px;
+    margin-bottom: 22px;
   }
   .interactive-source-node {
     width: 54px;
@@ -3517,10 +3527,11 @@ h3 em {
     height: 74px;
   }
   .interactive-header-node > div {
-    border-radius: 18px;
+    border-radius: 15px;
   }
   .interactive-header-node img {
-    width: 46px;
+  width: 54px;
+  height: 54px;    width: 46px;
     height: 46px;
   }
   .interactive-header-node > span {
@@ -3533,11 +3544,11 @@ h3 em {
   }
   .source-network-detail {
     display: block;
-    padding: 22px;
-    min-height: 195px;
+    padding: 18px;
+    min-height: 170px;
   }
   .source-network-detail p {
-    min-height: 65px;
+    min-height: 0;
   }
   .source-network-detail > a {
     margin-top: 12px;
@@ -3553,7 +3564,7 @@ h3 em {
 }
 @media (max-width: 380px) {
   .interactive-logo-network {
-    aspect-ratio: 600 / 800;
+    aspect-ratio: 600 / 680;
   }
 }
 
