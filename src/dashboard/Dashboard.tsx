@@ -479,9 +479,7 @@ export default function Dashboard() {
             >
               <Menu size={20} />
             </button>
-            <span className="hd-breadcrumb-home">Workspace</span>
-            <ChevronRight className="hd-breadcrumb-home" size={13} />
-            <span>{pageTitle}</span>
+            <span>{topic ? "Workspace" : pageTitle}</span>
           </div>
           <div className="hd-top-actions">
             <span className="hd-demo-badge">DEMO</span>
@@ -525,10 +523,10 @@ export default function Dashboard() {
                         {topic.owned
                           ? topic.schedule
                             ? topic.cadence.startsWith("Weekly · ")
-                              ? `Newsletter every ${topic.cadence.split(" · ")[1]}`
-                              : "Newsletter every morning"
-                            : "Newsletter on demand"
-                          : "Following this newsletter"}{" "}
+                              ? `${topic.cadence.split(" · ")[1]}s`
+                              : "Every morning"
+                            : "On demand"
+                          : "Following"}{" "}
                         <i>·</i> {topicSources.length}{" "}
                         {topicSources.length === 1 ? "source" : "sources"}
                       </span>
@@ -593,8 +591,8 @@ export default function Dashboard() {
                         {value === "newsletter"
                           ? "Newsletters"
                           : value === "feed"
-                            ? "Source feed"
-                            : "Your goal"}
+                            ? "Sources"
+                            : "Goal"}
                         {value === "newsletter" && <span>{issues.length}</span>}
                       </button>
                     ))}
