@@ -4,6 +4,8 @@ Frontend-only remake of the joinheader.com landing page and a signed-in dashboar
 
 Disclaimer: This is a conceptual UI/UX redesign created solely for educational and portfolio purposes. I am not affiliated with, authorized by, or in any way officially connected to Header Inc. All trademarks and brand assets belong to their respective owners.
 
+The landing page’s **Open demo dashboard** button opens `/dashboard/`. Dark mode is the default; a deliberate appearance selection is remembered across the landing page and dashboard.
+
 ## Run locally
 
 Requires Node.js 22 or newer.

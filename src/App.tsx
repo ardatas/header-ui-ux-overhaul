@@ -409,11 +409,13 @@ export default function App() {
           </p>
           <TopicComposer />
           <div className="hero-bottom">
+            <Button asChild>
+              <a href="/dashboard/">
+                Open demo dashboard <ArrowUpRight size={16} />
+              </a>
+            </Button>
             <a href="#how-it-works">
               See how it works <ArrowDown size={13} />
-            </a>
-            <a href="/dashboard/">
-              Try the dashboard <ArrowUpRight size={13} />
             </a>
           </div>
         </section>
