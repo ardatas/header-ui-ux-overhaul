@@ -306,7 +306,7 @@ export default function Dashboard() {
   async function copyShare() {
     try {
       await navigator.clipboard.writeText(
-        `${window.location.origin}/dashboard/#topic/${topic?.id}`,
+        `${window.location.origin}/dashboard#topic/${topic?.id}`,
       );
       setCopied(true);
     } catch {
@@ -1393,7 +1393,7 @@ export default function Dashboard() {
             className="hd-input"
             readOnly
             aria-label="Demo topic link"
-            value={`${window.location.origin}/dashboard/#topic/${topic.id}`}
+            value={`${window.location.origin}/dashboard#topic/${topic.id}`}
           />
           <button className="hd-btn hd-btn-primary hd-full" onClick={copyShare}>
             {copied ? <Check size={15} /> : <Copy size={15} />}{" "}

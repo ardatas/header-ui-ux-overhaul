@@ -342,7 +342,7 @@ function Footer() {
           <div>
             <span className="mono-label">PRODUCT</span>
             <a href={links.explore}>Explore topics</a>
-            <a href="/dashboard/">Try the demo workspace</a>
+            <a href="/dashboard">Try the demo workspace</a>
             <a href={links.clearTabs}>Clear Tabs</a>
             <a href={links.docs}>Documentation</a>
           </div>
@@ -410,7 +410,7 @@ export default function App() {
           <TopicComposer />
           <div className="hero-bottom">
             <Button asChild>
-              <a href="/dashboard/">
+              <a href="/dashboard">
                 Open demo dashboard <ArrowUpRight size={16} />
               </a>
             </Button>

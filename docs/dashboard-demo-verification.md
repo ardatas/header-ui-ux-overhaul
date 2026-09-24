@@ -57,7 +57,7 @@ The updated checklist is conservative: a compound requirement stays unchecked wh
 - OPML parsing is implemented but the file-upload path has not been browser-tested in this session. FreshRSS, forwarding, schedule delivery, API-key management, billing/trial expiry, and agent sync are not integrated.
 - The prototype includes Pro, Free, and Trial sample states. Exact source allowances, trial countdowns, expiry/lapse behavior, and pricing are not asserted; current plans link to Header.
 - Destructive issue/topic/source/reset flows confirm first. Follow-up removal is an immediate local action with a reset explanation; per-item undo is not implemented.
-- Vercel entry rewrites are configured. No deployment or production rewrite test was performed.
+- Vercel routing was subsequently tested against production; see the trailing-slash correction below.
 
 ## Newsletter format correction — 24 September 2026
 
@@ -80,3 +80,11 @@ This remains a frontend demo; no backend response adapter or live generation was
 - Light mode uses the dashboard's existing palette; landing typography, assets, content, and mobile source-flow visibility remain intact. Primary-button text, X icons, and the sources panel receive appropriate light-mode contrast.
 
 Verification for this revision: production build, strict TypeScript unused checks, and whitespace checks passed. Browser checks confirmed separate Agentic coding / Thoughtful design drafts, the updated schedule, desktop and 390px dashboard layout, 390px and 320px landing navigation without horizontal overflow, light-mode reload persistence, and shared appearance in both navigation directions. Browser console reported no warnings or errors. Temporary viewport overrides were reset.
+
+## Production dashboard routing correction — 24 September 2026
+
+The production landing button pointed to `/dashboard/`, which returned Vercel `404 NOT_FOUND`, while `/dashboard` returned the current app bundle with HTTP 200. Vite preview returned 200 for both and therefore concealed the production-only failure.
+
+Added `scripts/check-dashboard-routes.mjs` and ran it against the public production domain before the fix: the landing page and `/dashboard` passed; `/dashboard/` failed with HTTP 404. The test rejects login/error HTML as well as unsuccessful HTTP responses, and covers a query-string variant.
+
+Set `trailingSlash: false` using [Vercel's documented redirect behavior](https://vercel.com/docs/project-configuration/vercel-json#trailingslash) and made landing/share links use `/dashboard`. Existing slash-ending links redirect to the canonical route. This needs live route and browser validation after deployment, not only a successful build status.

@@ -4,7 +4,7 @@ Frontend-only remake of the joinheader.com landing page and a signed-in dashboar
 
 Disclaimer: This is a conceptual UI/UX redesign created solely for educational and portfolio purposes. I am not affiliated with, authorized by, or in any way officially connected to Header Inc. All trademarks and brand assets belong to their respective owners.
 
-The landing page’s **Open demo dashboard** button opens `/dashboard/`. Dark mode is the default; a deliberate appearance selection is remembered across the landing page and dashboard.
+The landing page’s **Open demo dashboard** button opens `/dashboard`. Dark mode is the default; a deliberate appearance selection is remembered across the landing page and dashboard.
 
 ## Run locally
 
@@ -41,10 +41,18 @@ React, TypeScript, Vite, Tailwind CSS 4, Framer Motion, and Lucide. The shadcn-c
 - `public/brand` and `public/fonts`: original assets served locally.
 - `docs/reference`: unchanged public schema, original font stylesheet, and source-flow diagram.
 
-The composer is an interactive local draft, with a copy-and-continue handoff to Header. All account actions and documentation links go to the existing website. The dashboard at `/dashboard/` is a separate interactive frontend demo. It uses synthetic newsletters and sources, simulates generation, and stores demo changes in this browser. No account, generation service, billing, or email backend is connected. Use Settings → Reset demo data to restore its sample content. Pending generation is session-only and stops on a full page reload.
+The composer is an interactive local draft, with a copy-and-continue handoff to Header. All account actions and documentation links go to the existing website. The dashboard at `/dashboard` is a separate interactive frontend demo. It uses synthetic newsletters and sources, simulates generation, and stores demo changes in this browser. No account, generation service, billing, or email backend is connected. Use Settings → Reset demo data to restore its sample content. Pending generation is session-only and stops on a full page reload.
 
 See [design reference](docs/design-reference.md) for asset provenance and component mapping, and [verification](docs/verification.md) for executed checks.
 
 ## Dashboard preview
 
-Open `http://127.0.0.1:5173/dashboard/` while the dev server is running. The landing page also links to the demo. Hash navigation supports links such as `/dashboard/#topic/agentic-coding`; Vercel rewrites serve the app for `/dashboard` and `/dashboard/`. The dashboard loads separately from the landing page.
+Open `http://127.0.0.1:5173/dashboard` while the dev server is running. The landing page also links to the demo. Hash navigation supports links such as `/dashboard#topic/agentic-coding`; Vercel redirects `/dashboard/` to `/dashboard` and rewrites the canonical route to the app entry. The dashboard loads separately from the landing page.
+
+After a production deployment, check both dashboard URL forms against the actual host:
+
+```sh
+node scripts/check-dashboard-routes.mjs https://header-ui-ux-overhaul.vercel.app
+```
+
+Vite preview accepts routes that the production host may reject, so a local preview alone does not validate these redirects.
