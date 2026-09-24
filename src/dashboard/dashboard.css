@@ -2305,22 +2305,8 @@
   width: 47px;
   height: 47px;
 }
-.hd-sample-article {
-  padding: 23px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  margin: 24px 0;
-}
-.hd-sample-article h3 {
-  font: 29px/1.15 var(--font-display);
-  margin: 16px 0;
-}
-.hd-sample-article p {
-  color: var(--text-secondary);
-  font-size: 12px;
-  line-height: 1.9;
-  margin-top: 14px;
+.hd-source-preview ~ .hd-field {
+  margin-top: 20px;
 }
 .hd-source-preview ~ .hd-btn {
   margin-top: 20px;

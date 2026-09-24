@@ -1468,19 +1468,6 @@ export default function Dashboard() {
             </span>
           </div>
           <p className="hd-muted">{preview.description}</p>
-          <div className="hd-sample-article">
-            <span className="hd-eyebrow">DEMO SOURCE PREVIEW</span>
-            <h3>A small idea, worth a closer look.</h3>
-            <p>
-              Good work often starts with a clear question. This sample resource
-              illustrates the kind of material Header could select, connect to
-              your goal, and reference in a newsletter.
-            </p>
-            <p>
-              It is synthetic content for exploring the interface. There is no
-              original article behind this demo citation.
-            </p>
-          </div>
           <label className="hd-field">
             Source address
             <input readOnly value={preview.url} />
