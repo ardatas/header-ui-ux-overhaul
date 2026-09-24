@@ -20,7 +20,7 @@ const sources: { label: string; type: SourceType; color: string }[] = [
   { label: "Podcasts", type: "podcast", color: "#A78BFA" },
   { label: "Newsletters", type: "newsletter", color: "#34D399" },
   { label: "Reddit", type: "reddit", color: "#60A5FA" },
-  { label: "X accounts", type: "x", color: "#E7E9EA" },
+  { label: "X accounts", type: "x", color: "var(--text-primary)" },
 ];
 const filters = [
   { include: "Practical patterns & lessons", exclude: "Model launches & hype" },
@@ -97,7 +97,6 @@ export function GatewayFlow() {
 
   return (
     <section
-      id="how-it-works"
       className="flow-section section-wrap"
       aria-labelledby="flow-title"
     >

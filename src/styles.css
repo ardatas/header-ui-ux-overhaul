@@ -31,6 +31,26 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+:root[data-theme="light"],
+.hd-app[data-theme="light"] {
+  --bg: #faf8f4;
+  --bg-deep: #f0ede7;
+  --bg-surface: #f4f1eb;
+  --bg-elevated: #ebe7df;
+  --bg-hover: #e6e1d8;
+  --text-primary: #252d3a;
+  --text-secondary: #62666c;
+  --text-muted: #72777d;
+  --border: #e6e1d8;
+  --border-hover: #d2cdc4;
+  --orange: #a95412;
+  --orange-hover: #954a10;
+  --orange-muted: rgba(169, 84, 18, 0.07);
+  --orange-border: rgba(169, 84, 18, 0.25);
+  --success: #187852;
+  --hd-subtle: #72777d;
+  color-scheme: light;
+}
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--text-primary);
@@ -3034,6 +3054,9 @@ h3 em {
   }
 }
 @media (max-width: 700px) {
+  .flow-section {
+    display: none;
+  }
   .source-integrations-layout {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -3571,7 +3594,7 @@ h3 em {
   font-size: 30px;
 }
 .signup-terminal h2 {
-  font: 500 clamp(24px, 2.8vw, 35px)/1.45 var(--font-mono);
+  font: 500 clamp(24px, 2.8vw, 35px) / 1.45 var(--font-mono);
   letter-spacing: -1.2px;
 }
 .signup-terminal .terminal-output {
@@ -3786,4 +3809,75 @@ h3 em {
 }
 .fitted-flow-streams {
   overflow: hidden;
+}
+
+/* Shared landing/workspace appearance control. */
+.appearance-switch {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border-hover);
+  border-radius: 6px;
+}
+.appearance-switch > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  padding: 7px 9px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  text-transform: capitalize;
+}
+.appearance-switch > button[aria-pressed="true"] {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+:root[data-theme="light"] .button-primary {
+  color: #fff;
+}
+:root[data-theme="light"] .composer {
+  box-shadow: 0 14px 40px rgba(11, 17, 32, 0.08);
+}
+:root[data-theme="light"] .source-logo-node.source-x {
+  color: var(--text-primary);
+}
+:root[data-theme="light"] .source-network-board {
+  background: var(--bg-surface);
+}
+:root[data-theme="light"] .story-keyword {
+  color: var(--success);
+}
+@media (max-width: 1200px) {
+  .nav-actions .appearance-switch span {
+    display: none;
+  }
+  .nav-actions {
+    gap: 14px;
+  }
+}
+@media (max-width: 640px) {
+  .nav-actions {
+    gap: 8px;
+  }
+  .nav-actions .appearance-switch > button {
+    min-height: 30px;
+    padding: 6px;
+  }
+}
+@media (max-width: 380px) {
+  .nav-inner {
+    width: calc(100% - 24px);
+    gap: 8px;
+  }
+  .nav-actions {
+    gap: 5px;
+  }
+  .nav-actions > .button-small {
+    padding-inline: 8px;
+  }
 }

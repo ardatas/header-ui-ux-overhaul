@@ -16,6 +16,12 @@ import {
 } from "lucide-react";
 import { MotionConfig } from "framer-motion";
 import { Button } from "./components/ui/button";
+import { AppearanceSwitch } from "./components/ui/appearance-switch";
+import {
+  readAppearance,
+  useApplyAppearance,
+  type Appearance,
+} from "./lib/appearance";
 import { TopicComposer } from "./components/ui/topic-composer";
 import { GatewayFlow } from "./components/ui/gateway-flow";
 import { ScrollStory } from "./components/ui/scroll-story";
@@ -32,7 +38,13 @@ function Brand() {
     </a>
   );
 }
-function Navigation() {
+function Navigation({
+  appearance,
+  onAppearance,
+}: {
+  appearance: Appearance;
+  onAppearance: (value: Appearance) => void;
+}) {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
@@ -59,6 +71,7 @@ function Navigation() {
           </a>
         </nav>
         <div className="nav-actions">
+          <AppearanceSwitch value={appearance} onChange={onAppearance} />
           <a className="login-link" href={links.login}>
             Log in
           </a>
@@ -329,6 +342,7 @@ function Footer() {
           <div>
             <span className="mono-label">PRODUCT</span>
             <a href={links.explore}>Explore topics</a>
+            <a href="/dashboard/">Try the demo workspace</a>
             <a href={links.clearTabs}>Clear Tabs</a>
             <a href={links.docs}>Documentation</a>
           </div>
@@ -370,13 +384,15 @@ function Footer() {
   );
 }
 export default function App() {
+  const [appearance, setAppearance] = useState(() => readAppearance());
+  useApplyAppearance(appearance);
   return (
     <MotionConfig reducedMotion="user">
       <a className="skip-link" href="#main">
         Skip to content
       </a>
       <div id="top" />
-      <Navigation />
+      <Navigation appearance={appearance} onAppearance={setAppearance} />
       <main id="main">
         <section className="hero section-wrap" aria-labelledby="hero-heading">
           <div className="hero-grain" aria-hidden="true" />
@@ -396,6 +412,9 @@ export default function App() {
             <a href="#how-it-works">
               See how it works <ArrowDown size={13} />
             </a>
+            <a href="/dashboard/">
+              Try the dashboard <ArrowUpRight size={13} />
+            </a>
           </div>
         </section>
         <div className="source-ribbon" hidden>
@@ -413,7 +432,9 @@ export default function App() {
           </div>
         </div>
         <ScrollStory />
-        <GatewayFlow />
+        <div id="how-it-works">
+          <GatewayFlow />
+        </div>
         <IntegrationsSection />
         <Explore />
         <MoreWays />
