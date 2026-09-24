@@ -3412,7 +3412,8 @@ h3 em {
 }
 .interactive-header-node img {
   width: 54px;
-  height: 54px;  border-radius: 12px;
+  height: 54px;
+  border-radius: 12px;
 }
 .interactive-header-node > span {
   position: absolute;
@@ -3530,8 +3531,7 @@ h3 em {
     border-radius: 15px;
   }
   .interactive-header-node img {
-  width: 54px;
-  height: 54px;    width: 46px;
+    width: 46px;
     height: 46px;
   }
   .interactive-header-node > span {
