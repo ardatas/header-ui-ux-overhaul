@@ -782,23 +782,10 @@
   max-width: 100%;
   height: auto;
 }
-.hd-issue-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.hd-reader-actions {
   margin-top: 34px;
   border-top: 1px solid var(--border);
-  padding: 22px 0;
-  color: var(--text-secondary);
-  font: 18px var(--font-display);
-}
-.hd-issue-footer small {
-  display: block;
-  font: 9px var(--font-body);
-  color: var(--hd-subtle);
-  margin-top: 7px;
-}
-.hd-reader-actions {
+  padding-top: 22px;
   display: flex;
   align-items: center;
   gap: 20px;

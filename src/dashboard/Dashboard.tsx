@@ -725,21 +725,6 @@ export default function Dashboard() {
                           sources={demo.sources}
                           onSource={setPreview}
                         />
-                        <div className="hd-issue-footer">
-                          <span>
-                            Made for your curiosity.
-                            <small>
-                              Illustrative newsletter · synthetic sources and
-                              content
-                            </small>
-                          </span>
-                          <img
-                            src="/brand/header-logo.png"
-                            width="24"
-                            height="24"
-                            alt="Header"
-                          />
-                        </div>
                         <div className="hd-reader-actions">
                           <button
                             onMouseDown={(event) => event.preventDefault()}
